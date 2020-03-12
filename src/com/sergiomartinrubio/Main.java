@@ -19,10 +19,9 @@ public class Main {
 
     private static String validatePostcode(String postcode) {
         if (!postcode.matches("^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$")) {
-            postcode = postcode.replace(" ", "");
-            StringBuilder sb = new StringBuilder(postcode);
-            sb.insert(postcode.length() - 3, " ");
-            return sb.toString();
+            StringBuilder formattedPostcode = new StringBuilder(postcode.replace(" ", ""));
+            formattedPostcode.insert(formattedPostcode.length() - 3, " ");
+            return formattedPostcode.toString();
         }
         return postcode;
     }
